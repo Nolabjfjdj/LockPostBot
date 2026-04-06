@@ -46,7 +46,7 @@ async def lock(interaction: discord.Interaction):
 
     # Verrouille le thread du forum
     try:
-        await channel.edit(locked=True, archived=True)
+        await channel.edit(locked=True)
     except discord.Forbidden:
         pass
 
