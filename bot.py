@@ -29,7 +29,12 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # ── Bot prêt ──────────────────────────────────────────────────────
 @bot.event
 async def on_ready():
-    await bot.tree.sync()
+    synced = await bot.tree.sync()
+
+    print(f"✅ {len(synced)} commande(s) synchronisée(s)")
+    for command in synced:
+        print(f"📌 Commande : /{command.name} | ID : {command.id}")
+
     print(f"✅ Connecté en tant que {bot.user} (ID: {bot.user.id})")
 
 # ── Commande /lock ─────────────────────────────────────────────────
